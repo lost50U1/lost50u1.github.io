@@ -43,7 +43,37 @@ h6 {
 }
 
 /* main style  */
-nav {
+
+body {
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: black;
   color: white;
+}
+
+#logo {
+  display: flex;
+}
+
+.logo {
+  height: 100px;
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  margin-right: 20px;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul a {
+  color: white;
+  text-decoration: none;
 }
