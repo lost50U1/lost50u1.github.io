@@ -45,28 +45,41 @@ h6 {
 /* main style  */
 
 body {
-  margin: 0 auto;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
+/* header  */
+
 header {
+  background-color: black;
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: black;
-  color: white;
+  padding: 0.9375rem 1.875rem;
+  width: 80%;
+  margin: 0 auto;
 }
 
 #logo {
   display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .logo {
-  height: 100px;
+  height: 50px;
+}
+
+#title {
+  padding: 0;
 }
 nav {
   display: flex;
   justify-content: space-around;
-  margin-right: 20px;
+  gap: 1rem;
 }
 
 nav ul {
@@ -76,4 +89,53 @@ nav ul {
 nav ul a {
   color: white;
   text-decoration: none;
+}
+
+/* container  */
+main {
+  width: 80%;
+  margin: 0 auto;
+  /* background-color: white; */
+  flex: 1;
+}
+
+/* footer  */
+
+footer {
+  background-color: #555;
+  color: #bbb;
+  line-height: 1.5;
+  width: 80%;
+  margin: 0 auto;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+footer a {
+  text-decoration: none;
+  color: #eee;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.ft-legal {
+  padding: 0.9375rem 1.875rem;
+  background-color: #333;
+}
+.ft-legal-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.ft-legal-list li {
+  margin: 0.125rem 0.625rem;
+  white-space: nowrap;
+}
+/* one before the last child */
+.ft-legal-list li:nth-last-child(2) {
+  flex: 1; /* same as flex-grow: 1; */
 }
