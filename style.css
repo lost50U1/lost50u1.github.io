@@ -147,7 +147,6 @@ main {
 
 /* welcome section  */
 #welcome-section {
-  /* margin-top: 5vh; */
   height: 100vh;
   background-color: red;
   color: white;
@@ -159,6 +158,7 @@ main {
 
 /* projects section  */
 #projects {
+  padding-top: 10vh;
   height: 100vh;
   background-color: blue;
   color: white;
@@ -167,6 +167,7 @@ main {
 
 /* contact section  */
 #contact {
+  padding-top: 10vh;
   height: 100vh;
   background-color: green;
   color: white;
