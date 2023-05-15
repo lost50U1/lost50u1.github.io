@@ -247,4 +247,15 @@ a:hover {
     display: flex;
     flex-wrap: wrap;
   }
+
+  #title {
+    font-size: 1.5rem;
+  }
+  nav ul a {
+    font-size: 0.8rem;
+  }
+
+  footer {
+    padding: 1rem 4rem;
+  }
 }
