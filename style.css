@@ -184,17 +184,23 @@ main {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, auto);
-  grid-template-rows: repeat(2, auto);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 10px;
+  width: 100%;
 }
 
 .project-tile {
   background-color: var(--primary-color1);
 }
+
+.project-tile img {
+  -o-object-fit: cover;
+  object-fit: cover;
+}
 .project-title {
-  color: var(--primary-color6);
+  color: var(--primary-color1);
+  margin-bottom: 1em;
+  font-size: 2rem;
 }
 
 /* contact section  */
