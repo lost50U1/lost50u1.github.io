@@ -1,0 +1,99 @@
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/* image background */
+
+
+/* https://cdn.freecodecamp.org/testable-projects-fcc/images/survey-form-background.jpeg link to background image*/
+
+body {
+    /*    this will make the background image and it will add gradiant on the image */
+    background-image: linear-gradient( 115deg, #04071ACC, #091832CB), url("https://png.pngtree.com/background/20210714/original/pngtree-futuristic-shape-abstract-background-chemistry-technology-concept-for-website-picture-image_1250295.jpg");
+    /*    this stops the background image from repeating*/
+    background-repeat: no-repeat;
+    /*    this makes the width 100% and the height of 100 view port height and a margin of 0 to replace the default*/
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    /*    this positions the image it can be pixels or text like right center u can use center center to make centered both vertically and horizontally */
+    background-position: center;
+    /*    this is used to resize the background image it can be pixels value of width and height respectively r cover and contain  ,*/
+    background-size: cover;
+/*    to make all the text colors white*/
+    color: white;
+/*    change font family*/
+    font-family: sans-serif;
+}
+
+#title,#description {
+/*    this makes the text centered*/
+    text-align: center
+}
+
+#title {
+/*    this will decrease the stroke, or weight of the text*/
+    font-weight: 100;
+    margin-top: 50px;
+    margin-bottom: 0px;
+}
+
+#description {
+/*    this will make the text italic*/
+    font-style: italic;
+    margin-bottom: 40px;
+}
+
+/*    FORMS */
+#survey-form {
+/*    to make it centered*/
+    margin: 0 auto;
+/*    this changes color of the form*/
+    background-color: #091832;
+/*    width: 80%;*/
+    max-width: 700px;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+/*labels */
+label {
+/*    this will make each label start in new line instead of stacking on eachother*/
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+input,textarea,select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    color: gray;
+}
+
+input[type="radio"], input[type="checkbox"]{
+    display: inline;
+    width: unset;
+}
+
+fieldset{
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+#submit {
+    background-color: #417D8F;
+    color: white;
+    border: none;
+    padding: 10px;
+    width:100%;  
+    font-size: 1em;
+}
+
+
+
+

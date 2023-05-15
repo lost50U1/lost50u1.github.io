@@ -1,0 +1,162 @@
+/* css reset  */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* main css  */
+
+body {
+  font-size: 16px;
+  color: #3f415f;
+  min-width: 300px;
+}
+
+#main-doc {
+  /* todo positioning needs work make it absolute cause An element with position: absolute; is positioned relative to the nearest positioned ancestor (instead of positioned relative to the viewport, like fixed). However; if an absolute positioned element has no positioned ancestors, it uses the document body, and moves along with page scrolling.*/
+  position: absolute;
+  /* i think this was restricting the width */
+  /* width: 79%; */
+  margin-left: 21%;
+  padding: 1em;
+}
+
+header {
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+section {
+  border: 1px solid #cdced8;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 10px #3f415f;
+}
+
+code {
+  text-align: center;
+  position: relative;
+  line-height: 2;
+  background-color: #eaeaee;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+/* sidebar  */
+
+/* todo it still needs to responsive for smaller screen fix the responsiveness and i am done */
+
+#navbar {
+  /* with out this it won;t stop shrinking */
+  min-width: 300px;
+  width: 20%;
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  top: 0; /* Stay at the top */
+  left: 0;
+  z-index: 1; /* Stay on top */
+  padding: 0.5em;
+  height: 100%;
+  border-right: 2px solid #9799ac;
+}
+
+#navbar a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #3f415f;
+}
+
+#navbar ul {
+  list-style: none;
+  padding-left: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 10px #3f415f;
+  height: 80%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+#navbar li {
+  padding: 1em;
+  border-bottom: 2px solid #9799ac;
+  position: relative;
+  width: 100%;
+}
+
+#navbar a:hover {
+  cursor: pointer;
+}
+
+#title {
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 10px #3f415f;
+  text-align: center;
+}
+
+/* end of navbar */
+
+@media screen and (max-width: 400px) {
+  #main-doc {
+    margin-left: -1%;
+  }
+}
+
+/* todo the navigation needs more work on this screen  */
+@media screen and (max-width: 912px) {
+  #main-doc {
+    margin-top: 300px;
+    position: relative;
+    margin-left: 0;
+  }
+
+  #navbar {
+    width: 100%;
+    position: absolute;
+    background-color: white;
+    top: 0;
+    z-index: 1; /* Stay on top */
+    padding: 0.5em;
+    max-height: 270px;
+    border-right: 2px solid #9799ac;
+  }
+}

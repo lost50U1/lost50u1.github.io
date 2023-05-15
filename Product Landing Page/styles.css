@@ -1,0 +1,255 @@
+/* css reset */
+
+/*
+1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* main css  */
+
+body {
+  height: 100vh;
+}
+
+/* header  */
+
+#header {
+  background-color: white;
+  padding: 1.5em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+/* responsive logo  */
+
+#header-img {
+  height: auto;
+  max-width: 300px;
+}
+
+/* navigation  */
+
+#nav-bar .nav-link {
+  text-decoration: none;
+  color: black;
+  margin-right: 10em;
+}
+
+#nav-bar ul {
+  display: flex;
+  list-style: none;
+}
+
+/* container  */
+
+.container {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 75px;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* first section  */
+.hero {
+  text-align: center;
+}
+
+#title {
+  margin-bottom: 10px;
+}
+
+#submit {
+  margin-top: 10px;
+  border: none;
+  background-color: #ddd;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 5px;
+}
+
+#submit:hover,
+#submit:focus {
+  background-color: #868484;
+  color: white;
+}
+
+/* features section */
+
+#features {
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.row1 {
+  display: flex;
+  height: 100px;
+}
+.col1 {
+  /* /* flex: 20%; */
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+
+.col2 {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+/* how section  */
+
+#how {
+  margin-bottom: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#video {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+}
+
+/* pricing section  */
+#pricing {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  -moz-column-gap: 20px;
+  column-gap: 20px;
+  text-align: center;
+}
+
+.price {
+  border: 1px solid black;
+  width: 100%;
+}
+
+h3 {
+  background-color: #ddd;
+}
+
+button {
+  margin-top: 10px;
+  border: none;
+  background-color: #ddd;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+button:hover,
+button:focus {
+  background-color: #868484;
+  color: white;
+}
+
+.b {
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+/* footer  */
+
+footer {
+  background-color: #ddd;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  padding: 1em;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+footer p {
+  margin: 0;
+}
+
+.contact a {
+  color: black;
+  text-decoration: none;
+  margin-left: 30px;
+}
+
+/* the responsive part in smaller screen needs fix  */
+
+@media screen and (max-width: 600px) {
+  .header-wrapper {
+    flex-wrap: wrap;
+  }
+  .hero {
+    margin-top: 100px;
+  }
+  .row1 {
+    margin-top: 80px;
+  }
+}

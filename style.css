@@ -2,6 +2,12 @@
 
 /* variables  */
 :root {
+  --primary-color1: #000000;
+  --primary-color2: #66666e;
+  --primary-color3: #9999a1;
+  --primary-color4: #e6e6e9;
+  --primary-color5: #f4f4f6;
+  --primary-color6: #ffffff;
 }
 
 /* css reset  */
@@ -86,15 +92,13 @@ h6 {
 
 body {
   display: grid;
-  /* grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr auto; */
 }
 
 /* header  */
 
 #navbar {
-  background-color: black;
-  color: white;
+  background-color: var(--primary-color1);
+  color: var(--primary-color6);
   padding: 1rem 10rem;
   width: 100%;
   margin: 0 auto;
@@ -102,6 +106,7 @@ body {
   top: 0;
   left: 0;
   z-index: 5;
+  height: 10vh;
 }
 
 #logo {
@@ -127,7 +132,7 @@ nav ul {
 }
 
 nav ul a {
-  color: white;
+  color: var(--primary-color6);
   text-decoration: none;
 }
 
@@ -148,39 +153,59 @@ main {
 /* welcome section  */
 #welcome-section {
   height: 100vh;
-  background-color: red;
-  color: white;
+  background-color: var(--primary-color3);
+  color: var(--primary-color6);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 1em;
+}
+
+.name {
+  font-size: 4rem;
+  text-align: center;
+}
+
+.sub-title {
+  color: var(--primary-color1);
+  font-size: 2rem;
+  font-style: italic;
 }
 
 /* projects section  */
 #projects {
-  padding-top: 10vh;
   height: 100vh;
-  background-color: blue;
-  color: white;
+  padding-top: 10vh;
+  background-color: var(--primary-color4);
+  color: var(--primary-color1);
   text-align: center;
+}
+
+.title1 {
 }
 
 /* contact section  */
 #contact {
-  padding-top: 10vh;
-  height: 100vh;
-  background-color: green;
-  color: white;
+  border-top: 1px solid var(--primary-color1);
+  height: 80vh;
+  background-color: var(--primary-color5);
+  color: var(--primary-color1);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#contact a {
+  color: var(--primary-color1);
+  text-decoration: none;
 }
 
 /* footer  */
 
 footer {
-  background-color: #555;
-  color: #bbb;
+  background-color: var(--primary-color2);
+  color: var(--primary-color6);
   line-height: 1.5;
   width: 100%;
   margin: 0 auto;
@@ -188,11 +213,13 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 10vh;
+  border-top: 1px solid var(--primary-color1);
 }
 
 footer a {
   text-decoration: none;
-  color: #eee;
+  color: var(--primary-color6);
   padding-left: 1em;
 }
 a:hover {
