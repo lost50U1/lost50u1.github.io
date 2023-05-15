@@ -130,6 +130,7 @@ body {
 nav {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 nav ul {
@@ -240,5 +241,10 @@ a:hover {
   text-decoration: underline;
 }
 
-@media screen {
+@media only screen and (max-width: 600px) {
+  footer a,
+  p {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
