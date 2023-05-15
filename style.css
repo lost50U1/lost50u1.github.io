@@ -185,6 +185,11 @@ main {
 .title1 {
 }
 
+.project-tile {
+  width: 50%;
+  height: 50%;
+}
+
 /* contact section  */
 #contact {
   border-top: 1px solid var(--primary-color1);
