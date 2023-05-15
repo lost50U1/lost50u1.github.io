@@ -1,3 +1,0 @@
-learn how to center the image without text align
-the size of the image needs to decrease for smaller screen size r smt to stop the overflow
-and find more flows on the website

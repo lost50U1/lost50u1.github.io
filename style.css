@@ -182,23 +182,30 @@ main {
   text-align: center;
 }
 
-.title1 {
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
 }
 
 .project-tile {
-  width: 50%;
-  height: 50%;
+  background-color: var(--primary-color1);
+}
+.project-title {
+  color: var(--primary-color6);
 }
 
 /* contact section  */
 #contact {
-  border-top: 1px solid var(--primary-color1);
   height: 80vh;
   background-color: var(--primary-color5);
   color: var(--primary-color1);
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1em;
 }
 
 #contact a {
