@@ -99,7 +99,6 @@ body {
 #navbar {
   background-color: var(--primary-color1);
   color: var(--primary-color6);
-  padding: 1rem 10rem;
   width: 100%;
   margin: 0 auto;
   position: fixed;
@@ -108,10 +107,17 @@ body {
   z-index: 5;
   height: 10vh;
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
   flex-wrap: wrap;
+  width: 80%;
 }
 
 #logo {
@@ -130,7 +136,6 @@ body {
 nav {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
 }
 
 nav ul {
