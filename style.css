@@ -245,12 +245,6 @@ a:hover {
 }
 
 @media only screen and (max-width: 600px) {
-  /* footer a,
-  p {
-    display: flex;
-    flex-wrap: wrap;
-  } */
-
   #title {
     font-size: 1.5rem;
   }
