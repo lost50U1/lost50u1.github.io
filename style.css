@@ -92,6 +92,7 @@ h6 {
 
 body {
   display: grid;
+  width: 100%;
 }
 
 /* header  */
