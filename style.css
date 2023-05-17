@@ -229,15 +229,12 @@ footer {
   color: var(--primary-color6);
   line-height: 1.5;
   width: 100%;
-  margin: 0 auto;
-  padding: 1rem 10rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-top: 1px solid var(--primary-color1);
 }
-
 footer a {
   text-decoration: none;
   color: var(--primary-color6);
@@ -248,20 +245,16 @@ a:hover {
 }
 
 @media only screen and (max-width: 600px) {
-  footer a,
+  /* footer a,
   p {
     display: flex;
     flex-wrap: wrap;
-  }
+  } */
 
   #title {
     font-size: 1.5rem;
   }
   nav ul a {
     font-size: 0.8rem;
-  }
-
-  footer {
-    padding: 1rem 4rem;
   }
 }
