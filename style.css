@@ -183,6 +183,7 @@ main {
   background-color: var(--primary-color4);
   color: var(--primary-color1);
   text-align: center;
+  width: 100%;
 }
 
 .grid {
@@ -190,15 +191,19 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   grid-gap: 10px;
   width: 100%;
+  padding: 0 1em;
 }
 
 .project-tile {
-  background-color: var(--primary-color1);
+  height: 300px;
+  width: 100%;
 }
 
 .project-tile img {
   -o-object-fit: cover;
   object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 .project-title {
   color: var(--primary-color1);
@@ -221,6 +226,27 @@ main {
 #contact a {
   color: var(--primary-color1);
   text-decoration: none;
+}
+
+.contact-title {
+  font-size: 4rem;
+}
+
+.contact-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 1em;
+}
+
+.contact-link {
+  font-size: 1.8rem;
+}
+
+#profile-link {
+  margin: 0 0.5em;
+}
+
+i {
+  margin-right: 0.2em;
 }
 
 /* footer  */
@@ -251,5 +277,9 @@ a:hover {
   }
   nav ul a {
     font-size: 0.8rem;
+  }
+  .contact-link {
+    display: flex;
+    flex-direction: column;
   }
 }
