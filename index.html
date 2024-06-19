@@ -2,110 +2,301 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+
+    <!-- tailwind css  -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- ionicons  -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <!-- font awesome  -->
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
       integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
       crossorigin="anonymous"
     />
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <header id="navbar">
-      <div class="wrapper">
-        <div id="logo">
-          <img class="logo" src="img/logo.png" alt="logo" />
-          <h1 id="title">Lost Soul</h1>
+  <body class="bg-black flex flex-col min-h-screen text-white">
+    <div class="container mx-auto">
+      <header
+        x-data="{mobileMenuOpen: false}"
+        class="bg-black text-white p-5 md:flex md:items-center md:justify-between container mx-auto h-[10vh] fixed top-0 w-full z-10"
+      >
+        <div class="flex justify-between items-center">
+          <span class="text-2xl cursor-pointer flex gap-2">
+            <img class="w-10" src="img/logo.png" alt="logo" />
+            Biruk
+          </span>
+          <span class="text-3xl cursor-pointer mx-2 md:hidden block">
+            <ion-icon
+              @click="mobileMenuOpen = !mobileMenuOpen"
+              name="menu-outline"
+            ></ion-icon>
+          </span>
         </div>
-        <nav>
-          <ul>
-            <li><a href="#welcome-section">About</a></li>
-          </ul>
-          <ul>
-            <li><a href="#projects">Projects</a></li>
-          </ul>
-          <ul>
-            <li><a href="#contact">Contact</a></li>
+        <!-- navigation for large screens  -->
+        <nav class="hidden md:block">
+          <ul class="flex w-full py-4">
+            <li>
+              <a
+                href="#"
+                class="hover:text-cyan-500 mx-4 my-8 md:my-0 transition duration-150 border-b-4 border-cyan-500 pb-2"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#about"
+                class="hover:text-cyan-500 mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#services"
+                class="hover:text-cyan-500 mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a
+                href="#skills"
+                class="hover:text-cyan-500 mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
+                >Skills</a
+              >
+            </li>
+            <li>
+              <a
+                href="#projects"
+                class="hover:text-cyan-500 mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
+                >Projects</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact"
+                class="hover:text-cyan-500 mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
+                >Contact</a
+              >
+            </li>
           </ul>
         </nav>
-      </div>
-    </header>
-    <main>
-      <section id="welcome-section">
-        <h1 class="name">Hey I am Biruk</h1>
-        <p class="sub-title">a web developer</p>
-      </section>
-      <section id="projects">
-        <h2 class="project-title">These are some of my projects</h2>
-        <div class="grid">
-          <a class="project-tile" href="/Product Landing Page/" target="_blank"
-            ><img src="/img/landing.png" alt="landing page"
-          /></a>
-          <a class="project-tile" href="/Survey Form/" target="_blank"
-            ><img src="/img/Survey Form.png" alt="Survey Form page"
-          /></a>
-          <a
-            class="project-tile"
-            href="/Technical Documentation Page/"
-            target="_blank"
-            ><img src="/img/TD Page.png" alt="Technical Documentation Page"
-          /></a>
-          <a class="project-tile" href="/Tribute Page/" target="_blank"
-            ><img src="/img/FTribute Page.png" alt="Tribute Page"
-          /></a>
+        <!-- navigation for mobile  -->
+        <nav
+          x-show.transition="mobileMenuOpen"
+          @click.away="mobileMenuOpen = false"
+        >
+          <ul class="md:hidden w-full py-4">
+            <li class="my-3">
+              <a
+                href="#"
+                class="hover:text-cyan-500 mx-4 my-8 md:my-0 transition duration-150 border-b-4 border-cyan-500 pb-2"
+                >Home</a
+              >
+            </li>
+            <li class="my-3">
+              <a
+                href="#about"
+                class="hover:text-cyan-500 mx-4 my-8 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
+                >About</a
+              >
+            </li>
+            <li class="my-3">
+              <a
+                href="#services"
+                class="hover:text-cyan-500 mx-4 my-8 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
+                >Services</a
+              >
+            </li>
+            <li class="my-3">
+              <a
+                href="#skills"
+                class="hover:text-cyan-500 mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
+                >Skills</a
+              >
+            </li>
+            <li class="my-3">
+              <a
+                href="#projects"
+                class="hover:text-cyan-500 mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
+                >Projects</a
+              >
+            </li>
+            <li class="my-3">
+              <a
+                href="#contact"
+                class="hover:text-cyan-500 mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+
+    <main class="flex-grow">
+      <section>
+        <div
+          class="container mx-auto flex flex-col justify-center items-center h-screen"
+          id="hero-section"
+        >
+          <h1 class="text-5xl">Hello I am Biruk</h1>
+          <p class="text-cyan-500 text-2xl">a web developer</p>
         </div>
       </section>
-      <section id="contact">
-        <h2 class="contact-title">Let's work together...</h2>
-        <p class="contact-subtitle">How do you take your coffee?</p>
-        <div class="contact-link">
-          <a
-            id="profile-link"
-            href="https://github.com/lost50U1"
-            target="_blank"
-            ><i class="fab fa-github"></i>Github</a
-          >
-          <a
-            id="profile-link"
-            href="https://www.twitter.com/@cc64e15cb0f543a"
-            target="_blank"
-            ><i class="fab fa-twitter"></i>Twitter</a
-          >
-          <a
-            id="profile-link"
-            href="https://www.linkedin.com/in/biruk-moges-a5a1b01aa/"
-            target="_blank"
-            ><i class="fab fa-linkedin"></i>LinkedIn</a
-          >
-          <a
-            id="profile-link"
-            href="https://www.freecodecamp.org/L05750U1"
-            target="_blank"
-            ><i class="fab fa-free-code-camp"></i>freeCodeCamp</a
-          >
-          <a
-            id="profile-link"
-            href="mailto:birukmoges8@google.com"
-            target="_blank"
-            ><i class="fa fa-at"></i>Email</a
-          >
-          <a id="profile-link" href="tel:251921222285" target="_blank"
-            ><i class="fa fa-mobile-alt"></i>Call me</a
-          >
+      <section>
+        <div
+          class="container mx-auto h-[100vh] pt-[10vh] flex flex-col justify-center items-center"
+          id="about"
+        >
+          <h2 class="text-5xl">About Me</h2>
+          <p>Less is more</p>
+          <p class="pt-4 w-3/12">
+            Hi I am Biruk , a frontend developer specializing in tailwind css
+            aiming to create pixel perfect and responsive websites from website
+            designs.
+          </p>
+          <div class="flex justify-between w-3/12 bg-black text-white pt-4">
+            <div class="">
+              <p>Name:</p>
+              <p>Address:</p>
+              <p>Email:</p>
+              <p>Phone:</p>
+            </div>
+            <div class="">
+              <p>Biruk Moges</p>
+              <p>Addis Abeba, Ethiopia</p>
+              <p>Figma</p>
+              <p>+251921222285</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div
+          class="container mx-auto h-[100vh] pt-[10vh] flex flex-col justify-center items-center"
+          id="services"
+        >
+          <h2 class="text-5xl mb-4">Services</h2>
+          <div class="flex justify-center w-3/12 bg-black text-white">
+            <ul class="list-disc">
+              <li>Html 5</li>
+              <li>CSS 3</li>
+              <li>Javascript</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div
+          class="container mx-auto h-[100vh] pt-[10vh] flex flex-col justify-center items-center"
+          id="skills"
+        >
+          <h2 class="text-5xl mb-4">My Skills</h2>
+          <div class="flex justify-between w-3/12 bg-black text-white">
+            <div class="">
+              <p>Html 5</p>
+              <p>CSS 3</p>
+              <p>Javascript</p>
+            </div>
+            <div class="">
+              <p>Bootstrap 5</p>
+              <p>Tailwind</p>
+              <p>Figma</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div
+          class="container mx-auto pt-[10vh] h-[100vh] flex flex-col items-center gap-8"
+          id="projects"
+        >
+          <h2 class="text-5xl mb-4">These are some of my projects</h2>
+          <div class="flex flex-col md:flex-row container mx-auto gap-6">
+            <div class="w-1/4 flex">
+              <a class="flex" href=""
+                ><img class="h-auto" src="img/FTribute Page.png" alt="images"
+              /></a>
+            </div>
+            <div class="w-1/4 flex">
+              <a class="flex" href=""
+                ><img class="h-auto" src="img/landing.png" alt="images"
+              /></a>
+            </div>
+            <div class="w-1/4 flex">
+              <a class="flex" href=""
+                ><img class="h-auto" src="img/Survey Form.png" alt="images"
+              /></a>
+            </div>
+            <div class="w-1/4 flex">
+              <a class="flex" href=""
+                ><img class="h-auto" src="img/TD Page.png" alt="images"
+              /></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- contact section -->
+      <section>
+        <div
+          class="container mx-auto h-[80vh] flex flex-col items-center justify-center"
+          id="contact"
+        >
+          <h2 class="text-5xl md:px-0 px-7">Let's work together...</h2>
+          <p class="text-cyan-500 text-2xl my-4 md:px-0 px-7">
+            How do you take your coffee?
+          </p>
+          <div class="text-3xl md:px-0 px-7 flex md:flex-row flex-col">
+            <a class="mx-2" href="https://github.com/lost50U1" target="_blank"
+              ><span class="mr-2"><i class="fab fa-github"></i></span>Github</a
+            >
+            <a
+              class="mx-2"
+              href="https://www.twitter.com/@cc64e15cb0f543a"
+              target="_blank"
+              ><span class="mr-2"><i class="fab fa-twitter"></i></span
+              >Twitter</a
+            >
+            <a
+              class="mx-2"
+              href="https://www.linkedin.com/in/biruk-moges-a5a1b01aa/"
+              target="_blank"
+              ><span class="mr-2"><i class="fab fa-linkedin"></i></span
+              >LinkedIn</a
+            >
+            <a
+              class="mx-2"
+              href="https://www.freecodecamp.org/L05750U1"
+              target="_blank"
+              ><span class="mr-2"><i class="fab fa-free-code-camp"></i></span
+              >freeCodeCamp</a
+            >
+            <a class="mx-2" href="mailto:birukmoges8@google.com" target="_blank"
+              ><span class="mr-2"><i class="fa fa-at"></i></span>Email</a
+            >
+            <a class="mx-2" href="tel:251921222285" target="_blank"
+              ><span class="mr-2"><i class="fa fa-mobile-alt"></i></span>Call
+              me</a
+            >
+          </div>
         </div>
       </section>
     </main>
-    <footer>
-      <div class="wrapper">
-        <div class="left">
-          <a href="#">Terms &amp; Conditions</a>
-          <a href="#">Privacy Policy</a>
-        </div>
-        <p>&copy; 2023 Created by Lost Soul</p>
-      </div>
+    <footer class="container text-white flex mx-auto justify-center p-5 h-20">
+      <p>&copy; 2023 Created by Biruk Moges</p>
     </footer>
+    <!-- alpine js -->
+    <script src="js/alpine.js" defer></script>
   </body>
 </html>
