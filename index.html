@@ -25,24 +25,15 @@
       integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
       crossorigin="anonymous"
     />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="bg-black flex flex-col min-h-screen text-white">
-    <div class="container mx-auto">
-      <header
-        x-data="{mobileMenuOpen: false}"
-        class="bg-black text-white p-5 md:flex md:items-center md:justify-between container mx-auto h-[10vh] fixed top-0 w-full z-10"
-      >
-        <div class="flex justify-between items-center">
-          <span class="text-2xl cursor-pointer flex gap-2">
-            <img class="w-10" src="img/logo.png" alt="logo" />
-            Biruk
-          </span>
-          <span class="text-3xl cursor-pointer mx-2 md:hidden block">
-            <ion-icon
-              @click="mobileMenuOpen = !mobileMenuOpen"
-              name="menu-outline"
-            ></ion-icon>
-          </span>
+  <body>
+    <header id="navbar">
+      <div class="wrapper">
+        <div id="logo">
+          <img class="logo" src="img/logo.png" alt="logo" />
+          <h1 id="title">Lost Soul</h1>
         </div>
         <!-- navigation for large screens  -->
         <nav class="hidden md:block">
@@ -293,8 +284,14 @@
         </div>
       </section>
     </main>
-    <footer class="container text-white flex mx-auto justify-center p-5 h-20">
-      <p>&copy; 2023 Created by Biruk Moges</p>
+    <footer>
+      <div class="wrapper">
+        <div class="left">
+          <a href="#">Terms &amp; Conditions</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+        <p>&copy; 2023 Created by Lost Soul</p>
+      </div>
     </footer>
     <!-- alpine js -->
     <script src="js/alpine.js" defer></script>
