@@ -25,15 +25,24 @@
       integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
       crossorigin="anonymous"
     />
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <header id="navbar">
-      <div class="wrapper">
-        <div id="logo">
-          <img class="logo" src="img/logo.png" alt="logo" />
-          <h1 id="title">Lost Soul</h1>
+  <body class="bg-black flex flex-col min-h-screen text-white">
+    <div class="container mx-auto">
+      <header
+        x-data="{mobileMenuOpen: false}"
+        class="bg-black text-white p-5 md:flex md:items-center md:justify-between container mx-auto h-[10vh] fixed top-0 w-full z-10"
+      >
+        <div class="flex justify-between items-center">
+          <span class="text-2xl cursor-pointer flex gap-2">
+            <img class="w-10" src="img/logo.png" alt="logo" />
+            Biruk
+          </span>
+          <span class="text-3xl cursor-pointer mx-2 md:hidden block">
+            <ion-icon
+              @click="mobileMenuOpen = !mobileMenuOpen"
+              name="menu-outline"
+            ></ion-icon>
+          </span>
         </div>
         <!-- navigation for large screens  -->
         <nav class="hidden md:block">
@@ -216,22 +225,22 @@
           <h2 class="text-5xl mb-4">These are some of my projects</h2>
           <div class="flex flex-col md:flex-row container mx-auto gap-6">
             <div class="w-1/4 flex">
-              <a class="flex" href="/Tribute Page/"
+              <a class="flex" href=""
                 ><img class="h-auto" src="img/FTribute Page.png" alt="images"
               /></a>
             </div>
             <div class="w-1/4 flex">
-              <a class="flex" href="/Product Landing Page/"
+              <a class="flex" href=""
                 ><img class="h-auto" src="img/landing.png" alt="images"
               /></a>
             </div>
             <div class="w-1/4 flex">
-              <a class="flex" href="/Survey Form/"
+              <a class="flex" href=""
                 ><img class="h-auto" src="img/Survey Form.png" alt="images"
               /></a>
             </div>
             <div class="w-1/4 flex">
-              <a class="flex" href="/Technical Documentation Page/"
+              <a class="flex" href=""
                 ><img class="h-auto" src="img/TD Page.png" alt="images"
               /></a>
             </div>
@@ -284,14 +293,8 @@
         </div>
       </section>
     </main>
-    <footer>
-      <div class="wrapper">
-        <div class="left">
-          <a href="#">Terms &amp; Conditions</a>
-          <a href="#">Privacy Policy</a>
-        </div>
-        <p>&copy; 2023 Created by Lost Soul</p>
-      </div>
+    <footer class="container text-white flex mx-auto justify-center p-5 h-20">
+      <p>&copy; 2023 Created by Biruk Moges</p>
     </footer>
     <!-- alpine js -->
     <script src="js/alpine.js" defer></script>
