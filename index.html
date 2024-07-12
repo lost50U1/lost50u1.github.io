@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,278 +25,690 @@
       integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
       crossorigin="anonymous"
     />
+    <!-- emailjs -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "gw3vwqo3LFYQwKDHy",
+        });
+      })();
+    </script>
+    <script type="text/javascript">
+      window.onload = function () {
+        document
+          .getElementById("contact-form")
+          .addEventListener("submit", function (event) {
+            event.preventDefault();
+            emailjs.sendForm("service_5emipkd", "template_i8h0f2m", this).then(
+              () => {
+                console.log("SUCCESS!");
+              },
+              (error) => {
+                console.log("FAILED...", error);
+              }
+            );
+          });
+      };
+    </script>
   </head>
-  <body class="bg-black flex flex-col min-h-screen text-white">
-    <div class="container mx-auto">
+  <body class="bg-black flex flex-col min-h-screen text-white py-8">
+    <div
+      :class="{ 'overflow-hidden': mobileMenu}"
+      class="relative"
+      x-data="{ mobileMenu: false }"
+    >
       <header
-        x-data="{mobileMenuOpen: false}"
-        class="bg-black text-white p-5 md:flex md:items-center md:justify-between container mx-auto h-[10vh] fixed top-0 w-full z-10"
+        class="flex justify-between items-center container mx-auto px-4 md:px-[5.625rem] mb-6 md:mb-10 fixed top-0 bg-black -translate-x-1/2 left-1/2 min-h-[10vh]"
       >
-        <div class="flex justify-between items-center">
-          <span class="text-2xl cursor-pointer flex gap-2">
-            <img class="w-10" src="img/logo.png" alt="logo" />
-            Biruk
-          </span>
-          <span class="text-3xl cursor-pointer mx-2 md:hidden block">
-            <ion-icon
-              @click="mobileMenuOpen = !mobileMenuOpen"
-              name="menu-outline"
-            ></ion-icon>
-          </span>
+        <div class="text-2xl cursor-pointer">
+          <a class="flex gap-2" href="#"
+            ><img
+              class="w-10 h-auto object-contain"
+              src="img/logo.png"
+              alt="logo"
+            />
+            Biruk</a
+          >
         </div>
-        <!-- navigation for large screens  -->
-        <nav class="hidden md:block">
-          <ul class="flex w-full py-4">
+        <nav class="hidden sm:flex">
+          <ul class="flex gap-6 text-darkgrayishblue">
             <li>
               <a
                 href="#"
-                class="hover:text-cyan-500 mx-4 my-8 md:my-0 transition duration-150 border-b-4 border-cyan-500 pb-2"
+                class="hover:text-cyan-500 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
                 >Home</a
               >
             </li>
             <li>
               <a
                 href="#about"
-                class="hover:text-cyan-500 mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
+                class="hover:text-cyan-500 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
                 >About</a
               >
             </li>
             <li>
               <a
+                href="#resume"
+                class="hover:text-cyan-500 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
+                >Resume</a
+              >
+            </li>
+            <li>
+              <a
                 href="#services"
-                class="hover:text-cyan-500 mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
+                class="hover:text-cyan-500 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
                 >Services</a
               >
             </li>
             <li>
               <a
                 href="#skills"
-                class="hover:text-cyan-500 mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
+                class="hover:text-cyan-500 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
                 >Skills</a
               >
             </li>
             <li>
               <a
                 href="#projects"
-                class="hover:text-cyan-500 mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
+                class="hover:text-cyan-500 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
                 >Projects</a
               >
             </li>
             <li>
               <a
                 href="#contact"
-                class="hover:text-cyan-500 mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
+                class="hover:text-cyan-500 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
                 >Contact</a
               >
             </li>
           </ul>
         </nav>
-        <!-- navigation for mobile  -->
-        <nav
-          x-show.transition="mobileMenuOpen"
-          @click.away="mobileMenuOpen = false"
-        >
-          <ul class="md:hidden w-full py-4">
-            <li class="my-3">
-              <a
-                href="#"
-                class="hover:text-cyan-500 mx-4 my-8 md:my-0 transition duration-150 border-b-4 border-cyan-500 pb-2"
-                >Home</a
-              >
-            </li>
-            <li class="my-3">
-              <a
-                href="#about"
-                class="hover:text-cyan-500 mx-4 my-8 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
-                >About</a
-              >
-            </li>
-            <li class="my-3">
-              <a
-                href="#services"
-                class="hover:text-cyan-500 mx-4 my-8 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
-                >Services</a
-              >
-            </li>
-            <li class="my-3">
-              <a
-                href="#skills"
-                class="hover:text-cyan-500 mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
-                >Skills</a
-              >
-            </li>
-            <li class="my-3">
-              <a
-                href="#projects"
-                class="hover:text-cyan-500 mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
-                >Projects</a
-              >
-            </li>
-            <li class="my-3">
-              <a
-                href="#contact"
-                class="hover:text-cyan-500 mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-cyan-500 pb-2"
-                >Contact</a
-              >
-            </li>
-          </ul>
-        </nav>
+        <div class="block sm:hidden text-3xl">
+          <button @click="mobileMenu = true">
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
+        </div>
       </header>
-    </div>
-
-    <main class="flex-grow">
-      <section>
-        <div
-          class="container mx-auto flex flex-col justify-center items-center h-screen"
-          id="hero-section"
-        >
-          <h1 class="text-5xl">Hello I am Biruk</h1>
-          <p class="text-cyan-500 text-2xl">a web developer</p>
-        </div>
-      </section>
-      <section>
-        <div
-          class="container mx-auto h-[100vh] pt-[10vh] flex flex-col justify-center items-center"
-          id="about"
-        >
-          <h2 class="text-5xl">About Me</h2>
-          <p>Less is more</p>
-          <p class="pt-4 w-3/12">
-            Hi I am Biruk , a frontend developer specializing in tailwind css
-            aiming to create pixel perfect and responsive websites from website
-            designs.
-          </p>
-          <div class="flex justify-between w-3/12 bg-black text-white pt-4">
-            <div class="">
-              <p>Name:</p>
-              <p>Address:</p>
-              <p>Email:</p>
-              <p>Phone:</p>
-            </div>
-            <div class="">
-              <p>Biruk Moges</p>
-              <p>Addis Abeba, Ethiopia</p>
-              <p>birukmoges8@gmail.com</p>
-              <p>+251921222285</p>
-            </div>
+      <!-- mobile menu  -->
+      <div
+        class="pointer-events-none sm:hidden flex justify-end bg-black bg-opacity-70 opacity-0 transition-opacity fixed top-0 right-0 w-full"
+        :class="{ 'opacity-100 pointer-events-auto': mobileMenu }"
+      >
+        <nav class="bg-cyan-500 min-h-screen w-2/3 px-6 pt-6">
+          <div class="flex justify-end mb-20 text-3xl">
+            <button @click="mobileMenu = false">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
           </div>
-        </div>
-      </section>
-      <section>
-        <div
-          class="container mx-auto h-[100vh] pt-[10vh] flex flex-col justify-center items-center"
-          id="services"
-        >
-          <h2 class="text-5xl mb-4">Services</h2>
-          <div class="flex justify-center w-3/12 bg-black text-white">
-            <ul class="list-disc">
-              <li>Html 5</li>
-              <li>CSS 3</li>
-              <li>Javascript</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-      <section>
-        <div
-          class="container mx-auto h-[100vh] pt-[10vh] flex flex-col justify-center items-center"
-          id="skills"
-        >
-          <h2 class="text-5xl mb-4">My Skills</h2>
-          <div class="flex justify-between w-3/12 bg-black text-white">
-            <div class="">
-              <p>Html 5</p>
-              <p>CSS 3</p>
-              <p>Javascript</p>
-            </div>
-            <div class="">
-              <p>Bootstrap 5</p>
-              <p>Tailwind</p>
-              <p>Figma</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section>
-        <div
-          class="container mx-auto pt-[10vh] h-[100vh] flex flex-col items-center gap-8"
-          id="projects"
-        >
-          <h2 class="text-5xl mb-4">These are some of my projects</h2>
-          <div class="flex flex-col md:flex-row container mx-auto gap-6">
-            <div class="w-1/4 flex">
-              <a class="flex" href="/Tribute Page/"
-                ><img class="h-auto" src="img/FTribute Page.png" alt="images"
-              /></a>
-            </div>
-            <div class="w-1/4 flex">
-              <a class="flex" href="/Product Landing Page/"
-                ><img class="h-auto" src="img/landing.png" alt="images"
-              /></a>
-            </div>
-            <div class="w-1/4 flex">
-              <a class="flex" href="/Survey Form/"
-                ><img class="h-auto" src="img/Survey Form.png" alt="images"
-              /></a>
-            </div>
-            <div class="w-1/4 flex">
-              <a class="flex" href="/Technical Documentation Page/"
-                ><img class="h-auto" src="img/TD Page.png" alt="images"
-              /></a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- contact section -->
-      <section>
-        <div
-          class="container mx-auto h-[80vh] flex flex-col items-center justify-center"
-          id="contact"
-        >
-          <h2 class="text-5xl md:px-0 px-7">Let's work together...</h2>
-          <p class="text-cyan-500 text-2xl my-4 md:px-0 px-7">
-            How do you take your coffee?
-          </p>
-          <div class="text-3xl md:px-0 px-7 flex md:flex-row flex-col">
-            <a class="mx-2" href="https://github.com/lost50U1" target="_blank"
-              ><span class="mr-2"><i class="fab fa-github"></i></span>Github</a
+          <ul
+            class="flex flex-col gap-10 text-verydarkblue font-bold text-base"
+          >
+            <li>
+              <a
+                href="#"
+                class="hover:text-black mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-black pb-2"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#about"
+                class="hover:text-black mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-black pb-2"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#resume"
+                class="hover:text-black mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-black pb-2"
+                >Resume</a
+              >
+            </li>
+            <li>
+              <a
+                href="#services"
+                class="hover:text-black mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-black pb-2"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a
+                href="#skills"
+                class="hover:text-black mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-black pb-2"
+                >Skills</a
+              >
+            </li>
+            <li>
+              <a
+                href="#projects"
+                class="hover:text-black mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-black pb-2"
+                >Projects</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact"
+                class="hover:text-black mx-4 my-6 md:my-0 transition duration-150 border-b-4 border-transparent hover:border-black pb-2"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- main content -->
+      <main class="flex-grow">
+        <!-- hero section -->
+        <section>
+          <div
+            class="container mx-auto flex flex-col sm:flex-row gap-6 justify-center items-center min-h-[90vh]"
+            id="hero-section"
+          >
+            <div
+              class="rounded-full border-[6px] border-cyan-500 shadow-2xl shadow-cyan-500/80"
             >
+              <img
+                class="rounded-full w-48 sm:w-56 h-auto"
+                src="img/profile.png"
+                alt="profile"
+              />
+            </div>
+            <div class="flex flex-col items-center">
+              <h1 class="text-5xl text-center">Hello I am Biruk</h1>
+              <p class="text-cyan-500 text-2xl">a web developer</p>
+              <div
+                class="flex flex-col justify-center sm:flex-row sm:items-center mt-7 gap-3"
+              >
+                <p class="flex items-center gap-3 text-2xl">
+                  Let's Connect
+                  <ion-icon
+                    class="text-cyan-500"
+                    name="chevron-forward-outline"
+                  ></ion-icon>
+                </p>
+                <div>
+                  <a
+                    class="mx-2 hover:text-cyan-500 text-xl"
+                    href="https://github.com/lost50U1"
+                    target="_blank"
+                    ><i class="fab fa-github"></i
+                  ></a>
+                  <a
+                    class="mx-2 hover:text-cyan-500 text-xl"
+                    href="https://www.twitter.com/@cc64e15cb0f543a"
+                    target="_blank"
+                    ><i class="fab fa-twitter"></i
+                  ></a>
+                  <a
+                    class="mx-2 hover:text-cyan-500 text-xl"
+                    href="https://www.linkedin.com/in/biruk-moges-a5a1b01aa/"
+                    target="_blank"
+                    ><i class="fab fa-linkedin"></i
+                  ></a>
+                  <a
+                    class="mx-2 hover:text-cyan-500 text-xl"
+                    href="https://www.freecodecamp.org/L05750U1"
+                    target="_blank"
+                    ><i class="fab fa-free-code-camp"></i
+                  ></a>
+                  <a
+                    class="mx-2 hover:text-cyan-500 text-xl"
+                    href="mailto:birukmoges8@gmail.com"
+                    target="_blank"
+                    ><i class="fa fa-at"></i
+                  ></a>
+                  <a
+                    class="mx-2 hover:text-cyan-500 text-xl"
+                    href="tel:251921222285"
+                    target="_blank"
+                    ><i class="fa fa-mobile-alt"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- about section -->
+        <section>
+          <div
+            class="container mx-auto min-h-[90vh] pt-[10vh] flex flex-col justify-center items-center"
+            id="about"
+          >
+            <h2 class="text-4xl">About Me</h2>
+            <p class="text-cyan-500">Less is more</p>
+            <div
+              class="bg-softgray mt-4 p-6 sm:p-8 rounded-xl w-[90%] sm:w-5/12 flex flex-col"
+            >
+              <p class="">
+                Hi I am Biruk , a frontend developer specializing in tailwind
+                css aiming to create pixel perfect and responsive websites from
+                website designs.
+              </p>
+              <div class="flex justify-between w-full text-white pt-4 gap-1">
+                <div class="">
+                  <p>Name:</p>
+                  <p>Address:</p>
+                  <p>Email:</p>
+                  <p>Phone:</p>
+                </div>
+                <div class="text-secondgray">
+                  <p>Biruk Moges</p>
+                  <p>Addis Abeba, Ethiopia</p>
+                  <p>birukmoges8@gmail.com</p>
+                  <p>+251921222285</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- resume section -->
+        <section>
+          <div
+            id="resume"
+            class="container mx-auto min-h-[90vh] pt-[10vh] flex flex-col justify-center items-center"
+          >
+            <h2 class="text-4xl">Resume</h2>
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 mt-10 mb-4 px-8">
+              <div class="flex flex-col p-4 bg-softgray">
+                <h3 class="text-cyan-500 font-black">2018-2022</h3>
+                <h4 class="font-semibold">Bachelor's Degree of Arch.& Urb.</h4>
+                <p class="text-secondgray uppercase text-sm mb-2">
+                  Unity University
+                </p>
+                <p class="text-secondgray text-sm">
+                  “I earned a Bachelor’s Degree from Unity University in
+                  architecture and urban planning.” 🎓
+                </p>
+              </div>
+              <div class="flex flex-col p-4 bg-softgray">
+                <h3 class="text-cyan-500 font-black">2023</h3>
+                <h4 class="font-semibold">Responsive Web Design</h4>
+                <p class="text-secondgray uppercase text-sm mb-2">
+                  freeCodeCamp
+                </p>
+                <p class="text-secondgray text-sm">
+                  i learned html and css by creating responsive design and
+                  earned the certificate by completing the required projects
+                  provided by freecodecamp
+                </p>
+              </div>
+              <div class="flex flex-col p-4 bg-softgray">
+                <h3 class="text-cyan-500 font-black">2023</h3>
+                <h4 class="font-semibold">Html</h4>
+                <p class="text-secondgray uppercase text-sm mb-2">sololearn</p>
+                <p class="text-secondgray text-sm">
+                  solo learn is an interactive learning site that have many
+                  courses on programming i finished my html knowledge using solo
+                  learn
+                </p>
+              </div>
+              <div class="flex flex-col p-4 bg-softgray">
+                <h3 class="text-cyan-500 font-black">2022-2024</h3>
+                <h4 class="font-semibold">Frontend Mentor Challenges</h4>
+                <p class="text-secondgray uppercase text-sm mb-2">
+                  frontendmentor
+                </p>
+                <p class="text-secondgray text-sm">
+                  frontendmentor is a website that gives real world challenges
+                  that can be used for portfolio's for frontend engineers and i
+                  finished some challenges that are provided.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- services section -->
+        <section>
+          <div
+            class="container mx-auto min-h-[90vh] pt-[10vh] flex flex-col justify-center items-center"
+            id="services"
+          >
+            <h2 class="text-4xl mb-4">Services</h2>
+            <div
+              class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mt-10 mb-4 px-8"
+            >
+              <div
+                class="flex flex-col items-center bg-softgray p-8 rounded-xl"
+              >
+                <ion-icon
+                  class="text-cyan-500 text-6xl"
+                  name="desktop-outline"
+                ></ion-icon>
+                <p class="uppercase">Responsive Web Design</p>
+              </div>
+              <div
+                class="flex flex-col items-center bg-softgray p-8 rounded-xl"
+              >
+                <ion-icon
+                  class="text-cyan-500 text-6xl"
+                  name="brush-outline"
+                ></ion-icon>
+                <p class="uppercase">Graphics Design</p>
+              </div>
+              <div
+                class="flex flex-col items-center bg-softgray p-8 rounded-xl"
+              >
+                <ion-icon
+                  class="text-cyan-500 text-6xl"
+                  name="mail-outline"
+                ></ion-icon>
+                <p class="uppercase">Email Development</p>
+              </div>
+              <div
+                class="flex flex-col items-center bg-softgray p-8 rounded-xl"
+              >
+                <ion-icon
+                  class="text-cyan-500 text-6xl"
+                  name="logo-wordpress"
+                ></ion-icon>
+                <p class="uppercase">Wordpress Development</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- skills section -->
+        <section>
+          <div
+            class="container mx-auto min-h-[90vh] pt-[10vh] flex flex-col justify-center items-center w-full"
+            id="skills"
+          >
+            <h2 class="text-4xl mb-4">My Skills</h2>
+            <div class="flex flex-col sm:flex-row justify-between gap-8 w-4/5">
+              <div class="w-full">
+                <div class="w-full pl-0 pt-10 lg:pt-0">
+                  <div class="pt-6">
+                    <div class="flex items-end justify-between gap-4">
+                      <h4 class="font-body font-semibold uppercase">Html 5</h4>
+                      <h3 class="font-body font-bold text-primary">95%</h3>
+                    </div>
+                    <div class="mt-2 h-3 w-full rounded-full bg-white">
+                      <div
+                        class="h-3 rounded-full bg-cyan-500"
+                        style="width: 95%"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full pl-0 pt-10 lg:pt-0">
+                  <div class="pt-6">
+                    <div class="flex items-end justify-between gap-4">
+                      <h4 class="font-body font-semibold uppercase">CSS 3</h4>
+                      <h3 class="font-body font-bold text-primary">90%</h3>
+                    </div>
+                    <div class="mt-2 h-3 w-full rounded-full bg-white">
+                      <div
+                        class="h-3 rounded-full bg-cyan-500"
+                        style="width: 90%"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full pl-0 pt-10 lg:pt-0">
+                  <div class="pt-6">
+                    <div class="flex items-end justify-between gap-4">
+                      <h4 class="font-body font-semibold uppercase">
+                        Javascript
+                      </h4>
+                      <h3 class="font-body font-bold text-primary">80%</h3>
+                    </div>
+                    <div class="mt-2 h-3 w-full rounded-full bg-white">
+                      <div
+                        class="h-3 rounded-full bg-cyan-500"
+                        style="width: 80%"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="w-full">
+                <div class="w-full pl-0">
+                  <div class="pt-6">
+                    <div class="flex items-end justify-between gap-4">
+                      <h4 class="font-body font-semibold uppercase">
+                        Bootstrap 5
+                      </h4>
+                      <h3 class="font-body font-bold text-primary">75%</h3>
+                    </div>
+                    <div class="mt-2 h-3 w-full rounded-full bg-white">
+                      <div
+                        class="h-3 rounded-full bg-cyan-500"
+                        style="width: 75%"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full pl-0 pt-10 lg:pt-0">
+                  <div class="pt-6">
+                    <div class="flex items-end justify-between gap-4">
+                      <h4 class="font-body font-semibold uppercase">
+                        Tailwind
+                      </h4>
+                      <h3 class="font-body font-bold text-primary">85%</h3>
+                    </div>
+                    <div class="mt-2 h-3 w-full rounded-full bg-white">
+                      <div
+                        class="h-3 rounded-full bg-cyan-500"
+                        style="width: 85%"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full pl-0 pt-10 lg:pt-0">
+                  <div class="pt-6">
+                    <div class="flex items-end justify-between gap-4">
+                      <h4 class="font-body font-semibold uppercase">Figma</h4>
+                      <h3 class="font-body font-bold text-primary">70%</h3>
+                    </div>
+                    <div class="mt-2 h-3 w-full rounded-full bg-white">
+                      <div
+                        class="h-3 rounded-full bg-cyan-500"
+                        style="width: 70%"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- projects section -->
+        <section>
+          <div
+            class="container mx-auto pt-[10vh] min-h-[100vh] flex flex-col items-center gap-8"
+            id="projects"
+          >
+            <h2 class="text-4xl text-center mb-4">
+              These are some of my projects
+            </h2>
+            <p class="text-cyan-500 my-4 md:px-0 px-7">
+              Here's what I have done with the past
+            </p>
+            <div
+              class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mt-10 mb-4 px-8"
+            >
+              <div
+                class="flex border-4 border-secondgray/40 rounded-xl overflow-hidden hover:border-cyan-500 hover:scale-110 transition-all"
+              >
+                <a class="flex" href=""
+                  ><img
+                    class="h-auto object-cover"
+                    src="img/FTribute Page.png"
+                    alt="images"
+                /></a>
+              </div>
+              <div
+                class="flex border-4 border-secondgray/40 rounded-xl overflow-hidden hover:border-cyan-500 hover:scale-110 transition-all"
+              >
+                <a class="flex" href=""
+                  ><img
+                    class="h-auto object-cover"
+                    src="img/landing.png"
+                    alt="images"
+                /></a>
+              </div>
+              <div
+                class="flex border-4 border-secondgray/40 rounded-xl overflow-hidden hover:border-cyan-500 hover:scale-110 transition-all"
+              >
+                <a class="flex" href=""
+                  ><img
+                    class="h-auto object-cover"
+                    src="img/Survey Form.png"
+                    alt="images"
+                /></a>
+              </div>
+              <div
+                class="flex border-4 border-secondgray/40 rounded-xl overflow-hidden hover:border-cyan-500 hover:scale-110 transition-all"
+              >
+                <a class="flex" href=""
+                  ><img
+                    class="h-auto object-cover"
+                    src="img/TD Page.png"
+                    alt="images"
+                /></a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- contact section -->
+        <section>
+          <div
+            class="container mx-auto min-h-[80vh] flex flex-col items-center justify-center"
+            id="contact"
+          >
+            <h2 class="text-4xl md:px-0 px-7">Contact Me</h2>
+            <p class="text-cyan-500 my-4 md:px-0 px-7">
+              Let's work together...
+            </p>
+            <!-- cta -->
+            <div
+              class="grid grid-cols-1 gap-20 sm:grid-cols-2 lg:grid-cols-4 mt-10 mb-4"
+            >
+              <div class="flex flex-col items-center gap-3">
+                <button class="text-2xl rounded-full bg-slate-600 p-6 flex">
+                  <ion-icon class="fill-cyan-500" name="location"></ion-icon>
+                </button>
+                <h3 class="font-bold uppercase">Address</h3>
+                <p class="text-sm">Addis Ababa, Ethiopia</p>
+              </div>
+              <div class="flex flex-col items-center gap-3">
+                <button class="text-2xl rounded-full bg-slate-600 p-6 flex">
+                  <ion-icon class="fill-cyan-500" name="call"></ion-icon>
+                </button>
+                <h3 class="font-bold uppercase">Contact Number</h3>
+                <p class="text-sm">+251921222285</p>
+              </div>
+              <div class="flex flex-col items-center gap-3">
+                <button class="text-2xl rounded-full bg-slate-600 p-6 flex">
+                  <ion-icon class="fill-cyan-500" name="mail"></ion-icon>
+                </button>
+                <h3 class="font-bold uppercase">Email</h3>
+                <p class="text-sm">birukmoges8@gmail.com</p>
+              </div>
+              <div class="flex flex-col items-center gap-3">
+                <button class="text-2xl rounded-full bg-slate-600 p-6 flex">
+                  <ion-icon class="fill-cyan-500" name="earth"></ion-icon>
+                </button>
+                <h3 class="font-bold uppercase">Website</h3>
+                <p class="text-sm">https://lost50u1.github.io/</p>
+              </div>
+            </div>
+            <!-- contact form  -->
+            <form id="contact-form" class="mx-auto w-full sm:w-3/4 px-8">
+              <div class="flex flex-col md:flex-row">
+                <input
+                  class="mr-3 w-full rounded border-grey-50 px-4 py-3 font-body text-black md:w-1/2 lg:mr-4"
+                  placeholder="Name"
+                  type="text"
+                  name="user_name"
+                  required
+                />
+                <input
+                  class="mt-4 w-full rounded border-grey-50 px-4 py-3 font-body text-black md:mt-0 md:ml-3 md:w-1/2 lg:ml-4"
+                  placeholder="Email"
+                  type="text"
+                  name="user_email"
+                  required
+                />
+              </div>
+              <textarea
+                class="mt-4 w-full rounded border-grey-50 px-4 py-3 font-body text-black md:mt-8"
+                placeholder="Message"
+                cols="30"
+                rows="6"
+                name="message"
+                required
+              ></textarea>
+              <input
+                type="submit"
+                class="mt-4 flex items-center justify-center rounded bg-cyan-500 px-8 py-3 font-header text-lg font-bold uppercase text-white hover:bg-white hover:text-cyan-500"
+                value="Send"
+              />
+            </form>
+          </div>
+        </section>
+      </main>
+      <!-- footer -->
+      <footer class="text-white p-5">
+        <div
+          class="container mx-auto flex flex-col items-center gap-4 sm:flex-row sm:justify-between w-3/4"
+        >
+          <p class="text-center sm:text-left">
+            &copy; Copyright 2024 Created by Biruk Moges
+          </p>
+          <div>
             <a
-              class="mx-2"
+              class="mx-2 hover:text-cyan-500 text-xl"
+              href="https://github.com/lost50U1"
+              target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              class="mx-2 hover:text-cyan-500 text-xl"
               href="https://www.twitter.com/@cc64e15cb0f543a"
               target="_blank"
-              ><span class="mr-2"><i class="fab fa-twitter"></i></span
-              >Twitter</a
-            >
+              ><i class="fab fa-twitter"></i
+            ></a>
             <a
-              class="mx-2"
+              class="mx-2 hover:text-cyan-500 text-xl"
               href="https://www.linkedin.com/in/biruk-moges-a5a1b01aa/"
               target="_blank"
-              ><span class="mr-2"><i class="fab fa-linkedin"></i></span
-              >LinkedIn</a
-            >
+              ><i class="fab fa-linkedin"></i
+            ></a>
             <a
-              class="mx-2"
+              class="mx-2 hover:text-cyan-500 text-xl"
               href="https://www.freecodecamp.org/L05750U1"
               target="_blank"
-              ><span class="mr-2"><i class="fab fa-free-code-camp"></i></span
-              >freeCodeCamp</a
-            >
-            <a class="mx-2" href="mailto:birukmoges8@google.com" target="_blank"
-              ><span class="mr-2"><i class="fa fa-at"></i></span>Email</a
-            >
-            <a class="mx-2" href="tel:251921222285" target="_blank"
-              ><span class="mr-2"><i class="fa fa-mobile-alt"></i></span>Call
-              me</a
-            >
+              ><i class="fab fa-free-code-camp"></i
+            ></a>
+            <a
+              class="mx-2 hover:text-cyan-500 text-xl"
+              href="mailto:birukmoges8@gmail.com"
+              target="_blank"
+              ><i class="fa fa-at"></i
+            ></a>
+            <a
+              class="mx-2 hover:text-cyan-500 text-xl"
+              href="tel:251921222285"
+              target="_blank"
+              ><i class="fa fa-mobile-alt"></i
+            ></a>
           </div>
         </div>
-      </section>
-    </main>
-    <footer class="container text-white flex mx-auto justify-center p-5 h-20">
-      <p>&copy; 2023 Created by Biruk Moges</p>
-    </footer>
-    <!-- alpine js -->
-    <script src="js/alpine.js" defer></script>
+      </footer>
+      <!-- alpine js -->
+      <script src="js/alpine.js" defer></script>
+      <!-- ionicons -->
+      <script
+        type="module"
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+      ></script>
+      <script
+        nomodule
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+      ></script>
+    </div>
   </body>
 </html>
